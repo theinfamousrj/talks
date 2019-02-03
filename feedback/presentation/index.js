@@ -95,9 +95,17 @@ export default class Presentation extends React.Component {
           </Heading>
           <Appear>
             <Text textColor="schweet">
-              Data about ourselves and how we are performing.
+              Data about ourselves and how we are performing at a given task.
             </Text>
           </Appear>
+          <Notes>
+            <ul>
+              <li>
+                We use data all of the time in our jobs, why not use it to tweak
+                our own performance?
+              </li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide bgColor="dinky">
@@ -113,7 +121,8 @@ export default class Presentation extends React.Component {
               </li>
               <li>This is also an important question.</li>
               <li>
-                Who can give me some examples of feedback they've received?
+                Who can give me some examples of feedback they've received and
+                why it's important?
               </li>
             </ul>
           </Notes>
@@ -142,7 +151,51 @@ export default class Presentation extends React.Component {
           </List>
           <Notes>
             <ul>
+              <li>Feedback can be positive or negative.</li>
               <li>There are plenty of ways to give feedback.</li>
+              <li>Who can give me a good example of a type of feedback?</li>
+            </ul>
+          </Notes>
+        </Slide>
+
+        <Slide bgColor="dinky" textColor="t2">
+          <Heading size={4} textColor="schneet" caps fit>
+            Feedback Loops
+          </Heading>
+          <Appear>
+            <Text textColor="t1">⟳ Feedback producing more feedback ⟲</Text>
+          </Appear>
+          <Notes>
+            <ul>
+              <li>What do you think a feedback loop is?</li>
+              <li>
+                Typically this is one person giving negative feedback to another
+                and in turn that person that got the negative feedback gives the
+                other negative feedback in return.
+              </li>
+              <li>How can we avoid this?</li>
+              <li>
+                By not giving valuable feedback and receiving constructive
+                feedback graciously.
+              </li>
+            </ul>
+          </Notes>
+        </Slide>
+
+        <Slide bgColor="danky" textColor="t2">
+          <Heading size={4} textColor="t1" caps fit>
+            Handling feedback
+          </Heading>
+          <Notes>
+            <ul>
+              <li>
+                Someone gives you feedback on your performance, how do you
+                handle it?
+              </li>
+              <li>
+                Is it good feedback or bad feedback, meaning, is it valuable
+                feedback or just nonsense?
+              </li>
               <li>Who can give me a good example of a type of feedback?</li>
             </ul>
           </Notes>
