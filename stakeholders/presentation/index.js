@@ -49,7 +49,7 @@ const theme = createTheme(
 );
 
 const images = {
-  bighead: require("../assets/bighead.gif")
+  bighead: require("../assets/got_it.gif")
 };
 
 preloader(images);
