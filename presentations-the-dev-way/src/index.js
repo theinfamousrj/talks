@@ -394,6 +394,10 @@ const Presentation = () => (
       `}
     </Markdown>
 
+    <Slide>
+      <Heading color="razzle">Putting it All Together</Heading>
+    </Slide>
+
     {/* mkdir -p "$@" && cd $_; */}
     <Slide transitionEffect="slide">
       <Heading>Every Presentation has a Deck and Slides</Heading>
@@ -435,7 +439,7 @@ const Presentation = () => (
         </ListItem>
       </UnorderedList>
     </Slide>
-    
+
   </Deck>
 );
 
