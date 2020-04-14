@@ -44,7 +44,8 @@ const theme = {
     // quaternary: '#ffc951',
     quinary: '#F0233B',
     // quinary: '#8bddfd'
-    bone: '#E2D9D9'
+    bone: '#E2D9D9',
+    razzle: '#fc6986'
   },
   fonts: {
     header: '"Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -141,21 +142,31 @@ const slideCodeBlock = indentNormalizer(`
 
 const Presentation = () => (
   <Deck theme={theme} template={template} transitionEffect="fade">
+
     <Slide>
       <FlexBox height="100%" flexDirection="column">
+        
         <Heading margin="0px" fontSize="100px">
           Crafting A Presentation
-      </Heading>
+        </Heading>
+
         <Heading margin="0px" fontSize="h2" color="primary">
           The Developer Way
-      </Heading>
+        </Heading>
+
       </FlexBox>
     </Slide>
+
     <Slide>
       <FlexBox height="100%" flexDirection="column">
         <SpectacleLogo size={500} />
       </FlexBox>
+
+      <Notes>
+        Kudos to the FormidableLabs team for the work they've done and continue to do on Spectacle!
+      </Notes>
     </Slide>
+
     <Slide>
       <FlexBox height="100%" flexDirection="column">
         <Heading margin="0px" fontSize="h1">
@@ -165,18 +176,18 @@ const Presentation = () => (
           A ReactJS Presentation Library
         </Heading>
       </FlexBox>
+
       <Notes>
-        <p>
-          You can write your decks in JSX, Markdown, or MDX!
-        </p>
+        You can write your decks in JSX, Markdown, or MDX!
       </Notes>
     </Slide>
+
     <Slide
       backgroundColor="tertiary"
       backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/master/beau.jpg?raw=true)"
       backgroundOpacity={0.5}
     >
-      <Heading>Custom Backgrounds</Heading>
+      <Heading color="razzle">Custom Backgrounds</Heading>
       <UnorderedList>
         <ListItem>
           <CodeSpan>backgroundColor</CodeSpan>
@@ -197,7 +208,13 @@ const Presentation = () => (
           <CodeSpan>backgroundRepeat</CodeSpan>
         </ListItem>
       </UnorderedList>
+
+      <Notes>
+        Here's where we start to see some of the power of Spectacle.<br />
+        You can reach out to a URL to get a photo, manipulate it a little, even build a photo component if you want.
+      </Notes>
     </Slide>
+
     <Slide transitionEffect="slide">
       <Heading>Code Blocks</Heading>
       <Stepper
@@ -252,28 +269,43 @@ const Presentation = () => (
           </Box>
         )}
       </Stepper>
+
       <Text>
         Code Blocks now auto size and scroll when there is an overflow of
         content! They also auto-wrap longer lines.
       </Text>
+
+      <Notes>
+        Notes are on the slide itself.
+      </Notes>
     </Slide>
+
     <Slide>
       <Heading>Animated Elements</Heading>
       <OrderedList>
+
         <Appear elementNum={0}>
           <ListItem>Elements can animate in!</ListItem>
         </Appear>
+
         <Appear elementNum={2}>
           <ListItem>
             Just identify the order with the prop{' '}
             <CodeSpan>elementNum</CodeSpan>!
           </ListItem>
         </Appear>
+
         <Appear elementNum={1}>
           <ListItem>Out of order</ListItem>
         </Appear>
+
       </OrderedList>
+
+      <Notes>
+        It's really nice to see animations work so smoothly with the Appear tag, but there's a downside we'll talk about later.
+      </Notes>
     </Slide>
+
     <Slide>
       <FlexBox>
         <Text>These</Text>
@@ -281,6 +313,7 @@ const Presentation = () => (
         <Text color="secondary">Items</Text>
         <Text fontWeight="bold">Flex</Text>
       </FlexBox>
+
       <Grid gridTemplateColumns="1fr 2fr" gridColumnGap={15}>
         <Box backgroundColor="primary">
           <Text color="secondary">Single-size Grid Item</Text>
@@ -289,6 +322,7 @@ const Presentation = () => (
           <Text>Double-size Grid Item</Text>
         </Box>
       </Grid>
+
       <Grid
         gridTemplateColumns="1fr 1fr 1fr"
         gridTemplateRows="1fr 1fr 1fr"
@@ -304,7 +338,12 @@ const Presentation = () => (
             </FlexBox>
           ))}
       </Grid>
+
+      <Notes>
+        So you've got a grid with two boxes in it and then you have a grid that uses array.map() to populate images.
+      </Notes>
     </Slide>
+
     <Slide>
       <Markdown>
         {`
@@ -319,7 +358,12 @@ const Presentation = () => (
           | IE 11           | No        |          |
         `}
       </Markdown>
+
+      <Notes>
+        Here we can see we have markdown inside of a markdown component inside of a slide.
+      </Notes>
     </Slide>
+
     <Markdown containsSlides>
       {`
         ### Even write multiple slides in Markdown
@@ -331,7 +375,7 @@ const Presentation = () => (
 
         - Or Unordered Lists
         - Too!!
-        Notes: These are notes
+        Notes: Here we have markdown inside of a markdown component with the containsSlides property set
         ---
         ### This slide was also generated in Markdown!
 
@@ -346,9 +390,10 @@ const Presentation = () => (
         char[] someString = "Popular languages like C too!";
         \`\`\`
 
-        Notes: These are more notes
+        Notes: Here we have another slide inside of the markdown tag, all separated by '---'
       `}
     </Markdown>
+
     {/* mkdir -p "$@" && cd $_; */}
     <Slide transitionEffect="slide">
       <Heading>Every Presentation has a Deck and Slides</Heading>
@@ -378,6 +423,7 @@ const Presentation = () => (
         Every presentation has a deck, inside of that deck is one or more slides. Those slides can contain any number of other components.
       </Notes>
     </Slide>
+
     <Slide backgroundColor="tertiary">
       <Heading>Issues with Spectacle</Heading>
       <UnorderedList>
@@ -389,6 +435,7 @@ const Presentation = () => (
         </ListItem>
       </UnorderedList>
     </Slide>
+    
   </Deck>
 );
 
