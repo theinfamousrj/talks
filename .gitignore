@@ -62,4 +62,6 @@ typings/
 
 \.DS_Store
 
-stakeholders_and_steakholders
+# build directories
+build/
+dist/
