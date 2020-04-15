@@ -53,6 +53,7 @@ const theme = {
     monospace: 'MonoLisa, "Dank Mono", "Consolas", "Menlo", monospace'
   },
   fontSizes: {
+    h0: '100px',
     h1: '72px',
     h2: '64px',
     h3: '56px',
@@ -137,6 +138,11 @@ const slideCodeBlock = indentNormalizer(`
     <Slide>
       ...
     </Slide>
+    <Markdown containsSlides>
+      {\`
+        ...
+      \`}
+    </Markdown>
   </Deck>
 `);
 
@@ -146,7 +152,7 @@ const Presentation = () => (
     <Slide>
       <FlexBox height="100%" flexDirection="column">
         
-        <Heading margin="0px" fontSize="100px">
+        <Heading margin="0px" fontSize="h0">
           Crafting A Presentation
         </Heading>
 
@@ -169,15 +175,14 @@ const Presentation = () => (
 
     <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <Heading margin="0px" fontSize="h1">
+        <Heading margin="0px" >
           What is Spectacle?
-        </Heading>
-        <Heading margin="0px" color="bone" fontSize="h2">
-          A ReactJS Presentation Library
         </Heading>
       </FlexBox>
 
       <Notes>
+        It's a ReactJS Presentation Library
+        <br/><br/>
         You can write your decks in JSX, Markdown, or MDX!
       </Notes>
     </Slide>
@@ -395,22 +400,40 @@ const Presentation = () => (
     </Markdown>
 
     <Slide>
-      <Heading color="razzle">Putting it All Together</Heading>
+      <FlexBox height="100%" flexDirection="column">
+        <Heading margin="0px" color="razzle">
+          Putting it All Together
+        </Heading>
+      </FlexBox>
     </Slide>
 
-    {/* mkdir -p "$@" && cd $_; */}
+    <Slide>
+      <Heading color="razzle">Getting a Base</Heading>
+      <OrderedList>
+        <ListItem>Download NodeJS</ListItem>
+        <ListItem>
+          Create yourself a fresh new directory somewhere
+          <CodePane>mkdir -p MyPresentation && cd $_</CodePane>
+        </ListItem>
+        <ListItem>
+          Run the following code:
+          <CodePane>npx -p spectacle-cli spectacle-boilerplate</CodePane>
+        </ListItem>
+      </OrderedList>
+    </Slide>
+
     <Slide transitionEffect="slide">
-      <Heading>Every Presentation has a Deck and Slides</Heading>
+      <Heading fontSize="h2" color="razzle">Presentation Basics</Heading>
       <Stepper
         defaultValue={[]}
         values={[
           [1, 1],
           [2, 4],
-          [1, 5]
+          [5, 9]
         ]}
       >
         {(value, step) => (
-          <Box position="relative">
+          <Box position="relative" height="1000px">
             <CodePane
               highlightStart={value[0]}
               highlightEnd={value[1]}
@@ -423,22 +446,33 @@ const Presentation = () => (
           </Box>
         )}
       </Stepper>
+
       <Notes>
-        Every presentation has a deck, inside of that deck is one or more slides. Those slides can contain any number of other components.
+        Every presentation has a deck and inside of that deck is one or more slides.
+        <br/><br/>
+        Those slides can contain any number of other components.
+        <br/><br/>
+        Any number of those slides can be written in markdown.
       </Notes>
     </Slide>
 
-    <Slide backgroundColor="tertiary">
-      <Heading>Issues with Spectacle</Heading>
-      <UnorderedList>
-        <ListItem>Custom backgrounds don't play nice with PDF export!</ListItem>
-        <ListItem>Animations don't play nice with PDF export either.</ListItem>
-        <ListItem>
-          Escaping the {'{}'} characters is not intuitive.
-          <ListItem>{'{\'{}\'}'}</ListItem>
-        </ListItem>
-      </UnorderedList>
-    </Slide>
+    <Markdown containsSlides>
+      {`
+        # DEMO
+
+        ---
+
+        # Issues with Spectacle
+        - Custom backgrounds don't play nice with PDF export!
+        - Animations don't play nice with PDF export either.
+        - Escaping curly braces is not intuitive. 
+          - This is more of an issue with React itself
+          - To print two curly braces use: {'{}'}
+        - You're stuck with the primary, secondary, and tertiary color theme in markdown.
+
+        Notes: Here we have markdown inside of a markdown component with the containsSlides property set
+      `}
+    </Markdown>
 
   </Deck>
 );
